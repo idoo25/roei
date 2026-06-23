@@ -4,12 +4,40 @@
   --font-sans: var(--font-heebo);
 }
 
+/*
+ * פלטת הצבעים מועתקת מ-Klein Motion Clinic (klein-motion-clinic.base44.app):
+ * פיין-אמרלד עמוק + מרווה רכה + קרם חמים. שמות הטוקנים של Tailwind
+ * (teal/emerald/slate) נדרסים כאן כך שכל הרכיבים מאמצים את הצבעים ללא שינוי קוד.
+ */
+@theme {
+  /* מותג — ירוק אמרלד/פיין */
+  --color-teal-50: hsl(157 40% 95%);
+  --color-teal-100: hsl(157 38% 88%);
+  --color-teal-200: hsl(157 38% 74%); /* accent מדויק */
+  --color-teal-500: hsl(160 50% 36%);
+  --color-teal-600: hsl(166 100% 18%); /* primary מדויק */
+  --color-teal-700: hsl(166 100% 13%); /* primary hover */
+  --color-emerald-100: hsl(160 40% 88%);
+  --color-emerald-500: hsl(160 50% 36%); /* secondary מדויק */
+
+  /* נייטרלים — אפור-מרווה חמים */
+  --color-slate-50: hsl(80 11% 95.5%);
+  --color-slate-100: hsl(80 9% 91%);
+  --color-slate-200: hsl(80 8% 88%); /* border מדויק */
+  --color-slate-300: hsl(150 8% 80%);
+  --color-slate-400: hsl(80 8% 60%); /* muted-foreground מדויק */
+  --color-slate-500: hsl(155 7% 46%);
+  --color-slate-600: hsl(160 8% 36%);
+  --color-slate-700: hsl(160 8% 27%);
+  --color-slate-900: hsl(160 8% 20%); /* foreground מדויק */
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
 }
 
 body {
-  background: #ffffff;
-  color: #334155;
+  background: hsl(80 11% 97%); /* קרם חמים */
+  color: hsl(160 8% 27%);
 }
