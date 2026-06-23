@@ -31,7 +31,7 @@ export default function Footer() {
               alt="רועי קליין — פיזיותרפיסט"
               width={330}
               height={110}
-              className="h-12 w-auto max-w-none shrink-0"
+              className="h-16 w-auto max-w-none shrink-0 sm:h-[99px]"
             />
           </a>
 

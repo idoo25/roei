@@ -46,7 +46,7 @@ export default function Header() {
       } ${scrolled ? "border-b border-slate-200 shadow-sm" : "border-b border-transparent"}`}
     >
       <Container>
-        <div className="flex h-20 items-center justify-between gap-4">
+        <div className="flex h-20 flex-row-reverse items-center justify-between gap-4 lg:h-[120px] lg:flex-row">
           {/* לוגו */}
           <a href="#hero" className="flex items-center">
             <Image
@@ -55,7 +55,7 @@ export default function Header() {
               width={330}
               height={110}
               priority
-              className="h-11 w-auto max-w-none shrink-0"
+              className="h-12 w-auto max-w-none shrink-0 sm:h-16 lg:h-[88px]"
             />
           </a>
 

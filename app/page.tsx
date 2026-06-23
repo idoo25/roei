@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       {/* ===== Hero ===== */}
-      <section id="hero" className="scroll-mt-28 py-16 sm:py-24">
+      <section id="hero" className="scroll-mt-40 py-16 sm:py-24">
         <Container className="relative">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* טקסט */}
@@ -101,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* ===== תחומי טיפול ===== */}
-      <section id="treatments" className="scroll-mt-28 py-20 sm:py-24">
+      <section id="treatments" className="scroll-mt-40 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
             <Eyebrow>מה אנחנו מציעים</Eyebrow>
@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* ===== סימפטומים ===== */}
-      <section id="symptoms" className="scroll-mt-28 bg-slate-50/80 py-20 sm:py-24">
+      <section id="symptoms" className="scroll-mt-40 bg-slate-50/80 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
             <Eyebrow>מתי כדאי לפנות</Eyebrow>
@@ -159,7 +159,7 @@ export default function Home() {
       </section>
 
       {/* ===== הגישה שלי ===== */}
-      <section id="approach" className="scroll-mt-28 py-20 sm:py-24">
+      <section id="approach" className="scroll-mt-40 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
             <Eyebrow>איך עובדים יחד</Eyebrow>
@@ -185,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* ===== קצת עליי ===== */}
-      <section id="about" className="scroll-mt-28 bg-slate-50/80 py-20 sm:py-24">
+      <section id="about" className="scroll-mt-40 bg-slate-50/80 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center">
             <Eyebrow>הכירו אותי</Eyebrow>
@@ -200,7 +200,7 @@ export default function Home() {
       </section>
 
       {/* ===== שאלות נפוצות ===== */}
-      <section id="faq" className="scroll-mt-28 py-20 sm:py-24">
+      <section id="faq" className="scroll-mt-40 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
             <Eyebrow>שאלות ותשובות</Eyebrow>
@@ -213,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* ===== יצירת קשר ===== */}
-      <section id="contact" className="scroll-mt-28 bg-slate-50/80 py-20 sm:py-24">
+      <section id="contact" className="scroll-mt-40 bg-slate-50/80 py-20 sm:py-24">
         <Container>
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal>
