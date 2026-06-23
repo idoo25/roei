@@ -12,7 +12,7 @@ const heebo = Heebo({
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: `${site.shortName} ${site.credential} — ${site.tagline}`,
     template: `%s | ${site.shortName}`,
   },
   description: site.intro,
@@ -29,7 +29,7 @@ export default function RootLayout({
       dir="rtl"
       className={`${heebo.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white font-sans text-slate-700">
+      <body className="flex min-h-full flex-col bg-[hsl(80_11%_97%)] font-sans text-slate-700">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

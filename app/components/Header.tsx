@@ -1,120 +1,138 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Icon } from "./Icon";
 import Container from "./Container";
 import { navLinks } from "../data/nav";
 import { site } from "../data/site";
 
-function isActive(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href);
-}
-
 export default function Header() {
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [atTop, setAtTop] = useState(true);
+  const [active, setActive] = useState("hero");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // המשקוף נחשף בגלילה כלפי מעלה ונעלם בגלילה כלפי מטה (כמו באתר המקור)
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setAtTop(y < 16);
+      if (y > last && y > 140) setHidden(true);
+      else setHidden(false);
+      last = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // scroll-spy — הדגשת הטאב של הסקשן שנמצא כעת באזור הצפייה
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll("section[id]"));
+    if (!sections.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((s) => io.observe(s));
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/85 backdrop-blur">
-      <Container>
-        <div className="flex h-16 items-center justify-between gap-4">
-          {/* Logo */}
-          <Link
-            href="/"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2.5 font-bold text-slate-900"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-600 text-white">
-              <Icon name="pulse" className="h-5 w-5" />
-            </span>
-            <span className="text-lg leading-tight">{site.shortName}</span>
-          </Link>
-
-          {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                  isActive(pathname, link.href)
-                    ? "bg-teal-50 text-teal-700"
-                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Desktop CTA */}
-          <div className="hidden items-center gap-3 md:flex">
-            <a
-              href={site.phoneHref}
-              className="flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-teal-700"
-            >
-              <Icon name="phone" className="h-4 w-4" />
-              <span dir="ltr">{site.phone}</span>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
+      <div
+        className={`transition-colors duration-300 ${
+          atTop
+            ? "bg-transparent"
+            : "border-b border-slate-200 bg-[hsl(80_11%_97%)]/90 backdrop-blur"
+        }`}
+      >
+        <Container>
+          <div className="flex h-20 items-center justify-between gap-4">
+            {/* לוגו */}
+            <a href="#hero" className="flex items-baseline gap-2">
+              <span className="text-xl font-extrabold tracking-tight text-teal-700">
+                {site.shortName}
+              </span>
+              <span className="text-xs font-semibold text-slate-400">
+                {site.credential}
+              </span>
             </a>
-            <Link
-              href="/contact"
-              className="rounded-full bg-teal-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-teal-700"
+
+            {/* ניווט דסקטופ */}
+            <nav className="hidden items-center gap-1 lg:flex">
+              {navLinks.map((link) => (
+                <a
+                  key={link.id}
+                  href={link.href}
+                  className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                    active === link.id
+                      ? "text-teal-700"
+                      : "text-slate-600 hover:text-teal-700"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+
+            {/* CTA דסקטופ */}
+            <a
+              href="#contact"
+              className="hidden rounded-xl bg-teal-700 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-600 lg:inline-block"
             >
               קביעת תור
-            </Link>
+            </a>
+
+            {/* כפתור מובייל */}
+            <button
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 lg:hidden"
+              aria-label={menuOpen ? "סגירת תפריט" : "פתיחת תפריט"}
+              aria-expanded={menuOpen}
+            >
+              <Icon name={menuOpen ? "close" : "menu"} className="h-6 w-6" />
+            </button>
           </div>
+        </Container>
+      </div>
 
-          {/* Mobile toggle */}
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 md:hidden"
-            aria-label={open ? "סגירת תפריט" : "פתיחת תפריט"}
-            aria-expanded={open}
-          >
-            <Icon name={open ? "close" : "menu"} className="h-6 w-6" />
-          </button>
-        </div>
-      </Container>
-
-      {/* Mobile menu */}
-      {open && (
-        <div className="border-t border-slate-200 bg-white md:hidden">
+      {/* תפריט מובייל */}
+      {menuOpen && (
+        <div className="border-b border-slate-200 bg-[hsl(80_11%_97%)] lg:hidden">
           <Container className="py-3">
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
+                <a
+                  key={link.id}
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={() => setMenuOpen(false)}
                   className={`rounded-lg px-3 py-2.5 text-base font-medium ${
-                    isActive(pathname, link.href)
+                    active === link.id
                       ? "bg-teal-50 text-teal-700"
                       : "text-slate-700 hover:bg-slate-100"
                   }`}
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
-            </nav>
-            <div className="mt-3 flex flex-col gap-2 border-t border-slate-200 pt-3">
               <a
-                href={site.phoneHref}
-                className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-slate-700"
-              >
-                <Icon name="phone" className="h-4 w-4 text-teal-600" />
-                <span dir="ltr">{site.phone}</span>
-              </a>
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="rounded-full bg-teal-600 px-4 py-2.5 text-center text-sm font-semibold text-white"
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="mt-2 rounded-xl bg-teal-700 px-4 py-2.5 text-center text-sm font-semibold text-white"
               >
                 קביעת תור
-              </Link>
-            </div>
+              </a>
+            </nav>
           </Container>
         </div>
       )}
