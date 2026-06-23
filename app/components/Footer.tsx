@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-6 text-center">
           <a href="#hero" className="flex items-center">
             <Image
-              src={asset("/logo-light.png")}
+              src={asset("/logo-silver.png")}
               alt="רועי קליין — פיזיותרפיסט"
               width={330}
               height={110}

@@ -50,7 +50,7 @@ export default function Header() {
           {/* לוגו */}
           <a href="#hero" className="flex items-center">
             <Image
-              src={asset("/logo.png")}
+              src={asset("/logo-navy.png")}
               alt="רועי קליין — פיזיותרפיסט"
               width={330}
               height={110}
