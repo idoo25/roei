@@ -5,6 +5,7 @@ import Reveal from "./components/Reveal";
 import Faq from "./components/Faq";
 import ContactForm from "./components/ContactForm";
 import { site } from "./data/site";
+import { asset } from "./basePath";
 import {
   treatments,
   symptoms,
@@ -64,13 +65,13 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#contact"
-                  className="rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-teal-600"
+                  className="btn-press rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white hover:bg-teal-600"
                 >
                   לקביעת פגישת אבחון
                 </a>
                 <a
                   href="#treatments"
-                  className="rounded-full border border-slate-300 bg-white px-7 py-3.5 font-semibold text-slate-800 transition-colors hover:border-teal-500 hover:text-teal-600"
+                  className="btn-press rounded-full border border-slate-300 bg-white px-7 py-3.5 font-semibold text-slate-800 hover:border-teal-500 hover:text-teal-600"
                 >
                   למידע נוסף
                 </a>
@@ -80,16 +81,15 @@ export default function Home() {
             {/* פורטרט + כרטיסים צפים */}
             <Reveal delay={150}>
               <div className="relative mx-auto w-full max-w-md">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-teal-600 to-teal-700 ring-1 ring-slate-200">
-                  <div className="flex h-full w-full items-center justify-center">
-                    <Image
-                      src="/logo-mark.png"
-                      alt=""
-                      width={180}
-                      height={180}
-                      className="h-40 w-40 opacity-20 brightness-0 invert"
-                    />
-                  </div>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-slate-200 shadow-xl">
+                  <Image
+                    src={asset("/portrait.png")}
+                    alt="רועי קליין מטפל במטופל"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 450px"
+                    className="object-cover"
+                  />
                 </div>
                 {/* כרטיסי נתונים צפים */}
                 <div className="absolute -top-4 right-6 rounded-2xl bg-white px-5 py-3 shadow-lg ring-1 ring-slate-100">
@@ -245,7 +245,7 @@ export default function Home() {
                 href={site.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-teal-600"
+                className="btn-press mt-8 inline-flex items-center gap-2 rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white hover:bg-teal-600"
               >
                 <Icon name="whatsapp" className="h-5 w-5" />
                 לקביעת תור בוואטסאפ

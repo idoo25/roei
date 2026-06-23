@@ -41,3 +41,15 @@ body {
   background: #ffffff;
   color: #44576b;
 }
+
+/* אפקט כפתורים: בריחוף הטקסט מודגש, ובלחיצה הכפתור גדל מעט (~6%). */
+.btn-press {
+  transition: transform 0.15s ease, background-color 0.2s ease,
+    border-color 0.2s ease, color 0.2s ease;
+}
+.btn-press:hover {
+  font-weight: 700;
+}
+.btn-press:active {
+  transform: scale(1.06);
+}

@@ -3,6 +3,7 @@ import { Icon } from "./Icon";
 import Container from "./Container";
 import { navLinks } from "../data/nav";
 import { site } from "../data/site";
+import { asset } from "../basePath";
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-6 text-center">
           <a href="#hero" className="flex items-center">
             <Image
-              src="/logo.png"
+              src={asset("/logo.png")}
               alt="רועי קליין — פיזיותרפיסט"
               width={330}
               height={110}

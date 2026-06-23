@@ -49,7 +49,7 @@ export default function ContactForm() {
       </div>
       <button
         type="submit"
-        className="w-full rounded-xl bg-teal-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-teal-600"
+        className="btn-press w-full rounded-xl bg-teal-700 px-6 py-3 font-semibold text-white hover:bg-teal-600"
       >
         השאירו פרטים ואחזור אליכם
       </button>

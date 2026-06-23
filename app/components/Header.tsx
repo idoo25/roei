@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Icon } from "./Icon";
 import Container from "./Container";
 import { navLinks } from "../data/nav";
+import { asset } from "../basePath";
 
 export default function Header() {
   const [hidden, setHidden] = useState(false);
@@ -49,7 +50,7 @@ export default function Header() {
           {/* לוגו */}
           <a href="#hero" className="flex items-center">
             <Image
-              src="/logo.png"
+              src={asset("/logo.png")}
               alt="רועי קליין — פיזיותרפיסט"
               width={330}
               height={110}
@@ -78,7 +79,7 @@ export default function Header() {
           {/* CTA דסקטופ */}
           <a
             href="#contact"
-            className="hidden rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-600 lg:inline-block"
+            className="btn-press hidden rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white hover:bg-teal-600 lg:inline-block"
           >
             קביעת תור
           </a>
@@ -118,7 +119,7 @@ export default function Header() {
               <a
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
-                className="mt-2 rounded-full bg-teal-700 px-4 py-2.5 text-center text-sm font-semibold text-white"
+                className="btn-press mt-2 rounded-full bg-teal-700 px-4 py-2.5 text-center text-sm font-semibold text-white"
               >
                 קביעת תור
               </a>
