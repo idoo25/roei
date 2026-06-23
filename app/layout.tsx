@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
+import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { site } from "./data/site";
@@ -29,7 +30,8 @@ export default function RootLayout({
       dir="rtl"
       className={`${heebo.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-[hsl(80_11%_97%)] font-sans text-slate-700">
+      <body className="flex min-h-full flex-col bg-white font-sans text-slate-700">
+        <TopBar />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

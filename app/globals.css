@@ -5,39 +5,39 @@
 }
 
 /*
- * פלטת הצבעים מועתקת מ-Klein Motion Clinic (klein-motion-clinic.base44.app):
- * פיין-אמרלד עמוק + מרווה רכה + קרם חמים. שמות הטוקנים של Tailwind
- * (teal/emerald/slate) נדרסים כאן כך שכל הרכיבים מאמצים את הצבעים ללא שינוי קוד.
+ * סכמת צבעים בהשראת danrixphysio.com + צבע המותג של הלוגו (RK = #1D4165 / #25486A):
+ * כחול נייבי עמוק + תכלת-פלדה + רקע לבן + סקשנים בתכלת בהיר.
+ * שמות הטוקנים של Tailwind (teal/emerald/slate) נדרסים כך שכל הרכיבים מאמצים את הסכמה.
  */
 @theme {
-  /* מותג — ירוק אמרלד/פיין */
-  --color-teal-50: hsl(157 40% 95%);
-  --color-teal-100: hsl(157 38% 88%);
-  --color-teal-200: hsl(157 38% 74%); /* accent מדויק */
-  --color-teal-500: hsl(160 50% 36%);
-  --color-teal-600: hsl(166 100% 18%); /* primary מדויק */
-  --color-teal-700: hsl(166 100% 13%); /* primary hover */
-  --color-emerald-100: hsl(160 40% 88%);
-  --color-emerald-500: hsl(160 50% 36%); /* secondary מדויק */
+  /* מותג — נייבי */
+  --color-teal-50: #eef5fc; /* תכלת בהיר מאוד (משטחים) */
+  --color-teal-100: #d6e6f5;
+  --color-teal-200: #b3d0ea;
+  --color-teal-500: #2f6196; /* תכלת-פלדה (אקסנט, קישורים, eyebrow) */
+  --color-teal-600: #1d4165; /* ראשי — נייבי הלוגו */
+  --color-teal-700: #0c2438; /* נייבי כהה מאוד (פס עליון, כפתורים) */
+  --color-emerald-100: #d6e6f5;
+  --color-emerald-500: #2f6196;
 
-  /* נייטרלים — אפור-מרווה חמים */
-  --color-slate-50: hsl(80 11% 95.5%);
-  --color-slate-100: hsl(80 9% 91%);
-  --color-slate-200: hsl(80 8% 88%); /* border מדויק */
-  --color-slate-300: hsl(150 8% 80%);
-  --color-slate-400: hsl(80 8% 60%); /* muted-foreground מדויק */
-  --color-slate-500: hsl(155 7% 46%);
-  --color-slate-600: hsl(160 8% 36%);
-  --color-slate-700: hsl(160 8% 27%);
-  --color-slate-900: hsl(160 8% 20%); /* foreground מדויק */
+  /* נייטרלים — אפורים בגוון נייבי קריר */
+  --color-slate-50: #eef5fc; /* רקע סקשן בתכלת */
+  --color-slate-100: #e7eef5;
+  --color-slate-200: #dbe5ee; /* גבולות */
+  --color-slate-300: #c3d2e0;
+  --color-slate-400: #8aa0b3; /* טקסט מעומעם */
+  --color-slate-500: #5f7488;
+  --color-slate-600: #44576b; /* טקסט גוף */
+  --color-slate-700: #1e3a52;
+  --color-slate-900: #102a43; /* כותרות נייבי עמוק */
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 7rem;
 }
 
 body {
-  background: hsl(80 11% 97%); /* קרם חמים */
-  color: hsl(160 8% 27%);
+  background: #ffffff;
+  color: #44576b;
 }

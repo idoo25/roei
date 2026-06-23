@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "./components/Container";
 import { Icon } from "./components/Icon";
 import Reveal from "./components/Reveal";
@@ -11,21 +12,44 @@ import {
   aboutParagraphs,
 } from "./data/content";
 
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="inline-flex items-center gap-2 font-semibold text-teal-500">
+      <Icon name="sparkles" className="h-5 w-5" />
+      {children}
+    </p>
+  );
+}
+
+function Hex({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 87" className={className} fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+      <path d="M50 1 L93 25 L93 62 L50 86 L7 62 L7 25 Z" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <>
       {/* ===== Hero ===== */}
-      <section id="hero" className="scroll-mt-24 bg-[hsl(80_11%_97%)] pt-28 pb-16 sm:pt-32 sm:pb-24">
-        <Container>
+      <section id="hero" className="relative scroll-mt-28 overflow-hidden bg-white py-16 sm:py-24">
+        {/* דפוס משושים עדין */}
+        <div className="pointer-events-none absolute inset-0 -z-0" aria-hidden="true">
+          <Hex className="absolute -right-10 top-10 h-56 w-56 text-teal-100" />
+          <Hex className="absolute right-40 top-44 h-32 w-32 text-teal-100" />
+          <Hex className="absolute right-4 bottom-10 h-40 w-40 text-teal-50" />
+          <Hex className="absolute right-72 -top-6 h-24 w-24 text-teal-50" />
+        </div>
+
+        <Container className="relative">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            {/* טקסט (ימין ב-RTL) */}
+            {/* טקסט */}
             <Reveal>
-              <p className="font-semibold text-teal-700">{site.tagline}</p>
-              <h1 className="mt-4 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl">
+              <Eyebrow>{site.tagline}</Eyebrow>
+              <h1 className="mt-4 text-3xl font-extrabold leading-[1.2] tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                 יש בעיות שאנשים מדברים עליהן בחופשיות.{" "}
-                <span className="text-teal-700">
-                  ויש בעיות שהם ממשיכים לסחוב חודשים
-                </span>{" "}
+                <span className="text-teal-500">ויש בעיות שהם ממשיכים לסחוב חודשים</span>{" "}
                 או שנים בתקווה שיעברו לבד.
               </h1>
               <p className="mt-6 text-lg leading-8 text-slate-600">
@@ -34,52 +58,57 @@ export default function Home() {
               </p>
               <p className="mt-4 text-lg leading-8 text-slate-600">
                 אני <strong className="font-bold text-slate-900">רועי קליין</strong>,
-                פיזיותרפיסט M.Sc.PT.
-              </p>
-              <p className="mt-4 text-lg leading-8 text-slate-600">
-                המטרה שלי היא לעזור לכם להבין מה באמת קורה, לבנות תוכנית פעולה ברורה
-                ולחזור לתפקוד שאתם רוצים.
+                פיזיותרפיסט M.Sc.PT. המטרה שלי היא לעזור לכם להבין מה באמת קורה, לבנות
+                תוכנית פעולה ברורה ולחזור לתפקוד שאתם רוצים.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#contact"
-                  className="rounded-xl bg-teal-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-teal-600"
+                  className="rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-teal-600"
                 >
                   לקביעת פגישת אבחון
                 </a>
                 <a
                   href="#treatments"
-                  className="rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-700 transition-colors hover:border-teal-400 hover:text-teal-700"
+                  className="rounded-full border border-slate-300 bg-white px-7 py-3.5 font-semibold text-slate-800 transition-colors hover:border-teal-500 hover:text-teal-600"
                 >
                   למידע נוסף
                 </a>
               </div>
             </Reveal>
 
-            {/* תמונת פורטרט (שמאל ב-RTL) — מציין-מיקום לתמונה אמיתית */}
+            {/* פורטרט + כרטיסים צפים */}
             <Reveal delay={150}>
               <div className="relative mx-auto w-full max-w-md">
-                <div className="absolute -inset-3 rounded-[2rem] bg-teal-200/40" aria-hidden />
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-gradient-to-b from-teal-100 to-slate-100 ring-1 ring-slate-200">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-teal-600 to-teal-700 ring-1 ring-slate-200">
                   <div className="flex h-full w-full items-center justify-center">
-                    <Icon name="user" className="h-28 w-28 text-teal-700/40" />
+                    <Image
+                      src="/logo-mark.png"
+                      alt=""
+                      width={180}
+                      height={180}
+                      className="h-40 w-40 opacity-20 brightness-0 invert"
+                    />
                   </div>
-                  <div className="absolute bottom-4 right-4 rounded-xl bg-white/95 px-4 py-2.5 shadow-sm backdrop-blur">
-                    <div className="font-bold text-slate-900">רועי קליין</div>
-                    <div className="text-sm text-teal-700">פיזיותרפיסט M.Sc.PT</div>
-                  </div>
+                </div>
+                {/* כרטיסי נתונים צפים */}
+                <div className="absolute -top-4 right-6 rounded-2xl bg-white px-5 py-3 shadow-lg ring-1 ring-slate-100">
+                  <div className="text-2xl font-extrabold text-slate-900">{site.stats[0].value}</div>
+                  <div className="text-xs text-slate-500">מטופלים באורתופדיה</div>
+                </div>
+                <div className="absolute -bottom-4 left-6 rounded-2xl bg-white px-5 py-3 shadow-lg ring-1 ring-slate-100">
+                  <div className="text-2xl font-extrabold text-slate-900">{site.stats[1].value}</div>
+                  <div className="text-xs text-slate-500">מטופלים ברצפת האגן</div>
                 </div>
               </div>
             </Reveal>
           </div>
 
           {/* רצועת נתונים */}
-          <div className="mt-16 grid grid-cols-2 gap-6 border-t border-slate-200 pt-10 lg:grid-cols-4">
+          <div className="mt-20 grid grid-cols-2 gap-6 border-t border-slate-200 pt-10 lg:grid-cols-4">
             {site.stats.map((stat, i) => (
               <Reveal key={stat.label} delay={i * 80} className="text-center">
-                <div className="text-2xl font-extrabold text-teal-700 sm:text-3xl">
-                  {stat.value}
-                </div>
+                <div className="text-2xl font-extrabold text-teal-600 sm:text-3xl">{stat.value}</div>
                 <div className="mt-1 text-sm text-slate-600">{stat.label}</div>
               </Reveal>
             ))}
@@ -88,16 +117,17 @@ export default function Home() {
       </section>
 
       {/* ===== תחומי טיפול ===== */}
-      <section id="treatments" className="scroll-mt-24 py-20 sm:py-24">
+      <section id="treatments" className="scroll-mt-28 bg-white py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">תחומי טיפול</h2>
+            <Eyebrow>מה אנחנו מציעים</Eyebrow>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">תחומי טיפול</h2>
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {treatments.map((t, i) => (
               <Reveal key={t.title} delay={i * 90}>
                 <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg hover:shadow-teal-100/50">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
                     <Icon name={t.icon} className="h-6 w-6" />
                   </div>
                   <h3 className="mt-5 text-lg font-bold text-slate-900">{t.title}</h3>
@@ -110,10 +140,11 @@ export default function Home() {
       </section>
 
       {/* ===== סימפטומים ===== */}
-      <section id="symptoms" className="scroll-mt-24 bg-[hsl(80_11%_95.5%)] py-20 sm:py-24">
+      <section id="symptoms" className="scroll-mt-28 bg-slate-50 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+            <Eyebrow>מתי כדאי לפנות</Eyebrow>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
               איך תדעו שאולי כדאי לפנות?
             </h2>
             <p className="mt-4 text-lg leading-8 text-slate-600">
@@ -128,7 +159,7 @@ export default function Home() {
                 key={s}
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
               >
-                <Icon name="arrowUpLeft" className="h-4 w-4 text-teal-600" />
+                <Icon name="arrowUpLeft" className="h-4 w-4 text-teal-500" />
                 {s}
               </span>
             ))}
@@ -144,10 +175,11 @@ export default function Home() {
       </section>
 
       {/* ===== הגישה שלי ===== */}
-      <section id="approach" className="scroll-mt-24 py-20 sm:py-24">
+      <section id="approach" className="scroll-mt-28 bg-white py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">הגישה שלי</h2>
+            <Eyebrow>איך עובדים יחד</Eyebrow>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">הגישה שלי</h2>
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {approachSteps.map((s, i) => (
@@ -161,7 +193,7 @@ export default function Home() {
             ))}
           </div>
           <Reveal className="mx-auto mt-12 max-w-3xl text-center">
-            <p className="text-2xl font-bold leading-snug text-teal-700 sm:text-3xl">
+            <p className="text-2xl font-bold leading-snug text-teal-600 sm:text-3xl">
               ”טיפול טוב מתחיל בהבנה. לא בתרגילים.“
             </p>
           </Reveal>
@@ -169,10 +201,11 @@ export default function Home() {
       </section>
 
       {/* ===== קצת עליי ===== */}
-      <section id="about" className="scroll-mt-24 bg-[hsl(80_11%_95.5%)] py-20 sm:py-24">
+      <section id="about" className="scroll-mt-28 bg-slate-50 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">קצת עליי</h2>
+            <Eyebrow>הכירו אותי</Eyebrow>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">קצת עליי</h2>
             <div className="mt-8 space-y-5 text-lg leading-8 text-slate-600">
               {aboutParagraphs.map((p) => (
                 <p key={p}>{p}</p>
@@ -183,10 +216,11 @@ export default function Home() {
       </section>
 
       {/* ===== שאלות נפוצות ===== */}
-      <section id="faq" className="scroll-mt-24 py-20 sm:py-24">
+      <section id="faq" className="scroll-mt-28 bg-white py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">שאלות נפוצות</h2>
+            <Eyebrow>שאלות ותשובות</Eyebrow>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">שאלות נפוצות</h2>
           </Reveal>
           <Reveal className="mt-12">
             <Faq />
@@ -195,11 +229,12 @@ export default function Home() {
       </section>
 
       {/* ===== יצירת קשר ===== */}
-      <section id="contact" className="scroll-mt-24 bg-[hsl(80_11%_95.5%)] py-20 sm:py-24">
+      <section id="contact" className="scroll-mt-28 bg-slate-50 py-20 sm:py-24">
         <Container>
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal>
-              <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+              <Eyebrow>יצירת קשר</Eyebrow>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
                 בואו נבין מה קורה
               </h2>
               <p className="mt-4 text-lg leading-8 text-slate-600">
@@ -210,7 +245,7 @@ export default function Home() {
                 href={site.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-teal-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-teal-600"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-teal-600"
               >
                 <Icon name="whatsapp" className="h-5 w-5" />
                 לקביעת תור בוואטסאפ

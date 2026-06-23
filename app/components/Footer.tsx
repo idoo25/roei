@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Icon } from "./Icon";
 import Container from "./Container";
 import { navLinks } from "../data/nav";
@@ -5,33 +6,48 @@ import { site } from "../data/site";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-slate-200 bg-[hsl(80_11%_95.5%)]">
-      <Container className="py-12">
+    <footer className="mt-auto bg-teal-700 text-white">
+      <Container className="py-14">
         <div className="flex flex-col items-center gap-6 text-center">
-          <a href="#hero" className="flex items-baseline gap-2">
-            <span className="text-xl font-extrabold text-teal-700">{site.shortName}</span>
-            <span className="text-xs font-semibold text-slate-400">{site.credential}</span>
+          <a href="#hero" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="רועי קליין — פיזיותרפיסט"
+              width={330}
+              height={110}
+              className="h-12 w-auto brightness-0 invert"
+            />
           </a>
 
           <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             {navLinks.map((link) => (
-              <a key={link.id} href={link.href} className="text-sm text-slate-600 hover:text-teal-700">
+              <a key={link.id} href={link.href} className="text-sm text-teal-100 hover:text-white">
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <a
-            href={site.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-teal-700 hover:text-teal-600"
-          >
-            <Icon name="whatsapp" className="h-5 w-5" />
-            לקביעת תור בוואטסאפ
-          </a>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-teal-100">
+            <a href={site.phoneHref} className="flex items-center gap-2 hover:text-white">
+              <Icon name="phone" className="h-4 w-4" />
+              <span dir="ltr">{site.phone}</span>
+            </a>
+            <a href={`mailto:${site.email}`} className="flex items-center gap-2 hover:text-white">
+              <Icon name="mail" className="h-4 w-4" />
+              <span dir="ltr">{site.email}</span>
+            </a>
+            <a
+              href={site.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-white"
+            >
+              <Icon name="whatsapp" className="h-4 w-4" />
+              וואטסאפ
+            </a>
+          </div>
 
-          <p className="text-sm text-slate-500">
+          <p className="border-t border-white/10 pt-6 text-sm text-teal-100/80">
             © {new Date().getFullYear()} {site.shortName} — {site.credential}. כל הזכויות שמורות.
           </p>
         </div>
