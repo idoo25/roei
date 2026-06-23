@@ -10,13 +10,13 @@ export default function Footer() {
     <footer className="mt-auto bg-teal-700 text-white">
       <Container className="py-14">
         <div className="flex flex-col items-center gap-6 text-center">
-          <a href="#hero" className="flex items-center">
+          <a href="#hero" className="inline-flex items-center rounded-2xl bg-white px-5 py-3">
             <Image
               src={asset("/logo.png")}
               alt="רועי קליין — פיזיותרפיסט"
               width={330}
               height={110}
-              className="h-12 w-auto brightness-0 invert"
+              className="h-11 w-auto"
             />
           </a>
 

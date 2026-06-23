@@ -22,27 +22,11 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Hex({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 100 87" className={className} fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-      <path d="M50 1 L93 25 L93 62 L50 86 L7 62 L7 25 Z" />
-    </svg>
-  );
-}
-
 export default function Home() {
   return (
     <>
       {/* ===== Hero ===== */}
-      <section id="hero" className="relative scroll-mt-28 overflow-hidden bg-white py-16 sm:py-24">
-        {/* דפוס משושים עדין */}
-        <div className="pointer-events-none absolute inset-0 -z-0" aria-hidden="true">
-          <Hex className="absolute -right-10 top-10 h-56 w-56 text-teal-100" />
-          <Hex className="absolute right-40 top-44 h-32 w-32 text-teal-100" />
-          <Hex className="absolute right-4 bottom-10 h-40 w-40 text-teal-50" />
-          <Hex className="absolute right-72 -top-6 h-24 w-24 text-teal-50" />
-        </div>
-
+      <section id="hero" className="scroll-mt-28 py-16 sm:py-24">
         <Container className="relative">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* טקסט */}
@@ -92,11 +76,11 @@ export default function Home() {
                   />
                 </div>
                 {/* כרטיסי נתונים צפים */}
-                <div className="absolute -top-4 right-6 rounded-2xl bg-white px-5 py-3 shadow-lg ring-1 ring-slate-100">
+                <div className="absolute -top-4 left-6 rounded-2xl bg-white px-5 py-3 shadow-lg ring-1 ring-slate-100">
                   <div className="text-2xl font-extrabold text-slate-900">{site.stats[0].value}</div>
                   <div className="text-xs text-slate-500">מטופלים באורתופדיה</div>
                 </div>
-                <div className="absolute -bottom-4 left-6 rounded-2xl bg-white px-5 py-3 shadow-lg ring-1 ring-slate-100">
+                <div className="absolute -bottom-4 right-6 rounded-2xl bg-white px-5 py-3 shadow-lg ring-1 ring-slate-100">
                   <div className="text-2xl font-extrabold text-slate-900">{site.stats[1].value}</div>
                   <div className="text-xs text-slate-500">מטופלים ברצפת האגן</div>
                 </div>
@@ -117,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* ===== תחומי טיפול ===== */}
-      <section id="treatments" className="scroll-mt-28 bg-white py-20 sm:py-24">
+      <section id="treatments" className="scroll-mt-28 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
             <Eyebrow>מה אנחנו מציעים</Eyebrow>
@@ -140,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* ===== סימפטומים ===== */}
-      <section id="symptoms" className="scroll-mt-28 bg-slate-50 py-20 sm:py-24">
+      <section id="symptoms" className="scroll-mt-28 bg-slate-50/80 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
             <Eyebrow>מתי כדאי לפנות</Eyebrow>
@@ -175,7 +159,7 @@ export default function Home() {
       </section>
 
       {/* ===== הגישה שלי ===== */}
-      <section id="approach" className="scroll-mt-28 bg-white py-20 sm:py-24">
+      <section id="approach" className="scroll-mt-28 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
             <Eyebrow>איך עובדים יחד</Eyebrow>
@@ -201,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* ===== קצת עליי ===== */}
-      <section id="about" className="scroll-mt-28 bg-slate-50 py-20 sm:py-24">
+      <section id="about" className="scroll-mt-28 bg-slate-50/80 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center">
             <Eyebrow>הכירו אותי</Eyebrow>
@@ -216,7 +200,7 @@ export default function Home() {
       </section>
 
       {/* ===== שאלות נפוצות ===== */}
-      <section id="faq" className="scroll-mt-28 bg-white py-20 sm:py-24">
+      <section id="faq" className="scroll-mt-28 py-20 sm:py-24">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
             <Eyebrow>שאלות ותשובות</Eyebrow>
@@ -229,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* ===== יצירת קשר ===== */}
-      <section id="contact" className="scroll-mt-28 bg-slate-50 py-20 sm:py-24">
+      <section id="contact" className="scroll-mt-28 bg-slate-50/80 py-20 sm:py-24">
         <Container>
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal>

@@ -4,6 +4,7 @@ import "./globals.css";
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HexBackground from "./components/HexBackground";
 import { site } from "./data/site";
 
 const heebo = Heebo({
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-white font-sans text-slate-700">
         <TopBar />
         <Header />
+        <HexBackground />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
