@@ -55,7 +55,7 @@ export default function Header() {
               width={330}
               height={110}
               priority
-              className="h-11 w-auto"
+              className="h-11 w-auto max-w-none shrink-0"
             />
           </a>
 
@@ -65,10 +65,10 @@ export default function Header() {
               <a
                 key={link.id}
                 href={link.href}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-lg px-3 py-2 text-sm font-medium transition-all ${
                   active === link.id
-                    ? "text-teal-600"
-                    : "text-slate-700 hover:text-teal-600"
+                    ? "font-bold text-teal-600"
+                    : "text-slate-600 hover:font-bold hover:text-slate-900"
                 }`}
               >
                 {link.label}
@@ -79,7 +79,7 @@ export default function Header() {
           {/* CTA דסקטופ */}
           <a
             href="#contact"
-            className="btn-press hidden rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white hover:bg-teal-600 lg:inline-block"
+            className="btn-press hidden rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white ring-2 ring-inset ring-teal-700 hover:bg-white hover:text-teal-700 lg:inline-block"
           >
             קביעת תור
           </a>
@@ -107,10 +107,10 @@ export default function Header() {
                   key={link.id}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`rounded-lg px-3 py-2.5 text-base font-medium ${
+                  className={`rounded-lg px-3 py-2.5 text-base font-medium transition-all ${
                     active === link.id
-                      ? "bg-teal-50 text-teal-600"
-                      : "text-slate-700 hover:bg-slate-100"
+                      ? "bg-teal-50 font-bold text-teal-600"
+                      : "text-slate-700 hover:font-bold hover:bg-slate-100"
                   }`}
                 >
                   {link.label}
@@ -119,7 +119,7 @@ export default function Header() {
               <a
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
-                className="btn-press mt-2 rounded-full bg-teal-700 px-4 py-2.5 text-center text-sm font-semibold text-white"
+                className="btn-press mt-2 rounded-full bg-teal-700 px-4 py-2.5 text-center text-sm font-semibold text-white ring-2 ring-inset ring-teal-700 hover:bg-white hover:text-teal-700"
               >
                 קביעת תור
               </a>

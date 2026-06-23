@@ -42,17 +42,15 @@ body {
   color: #44576b;
 }
 
-/* אפקט כפתורים: בריחוף הטקסט מודגש, הכפתור גדל מעט ומקבל צל;
-   בלחיצה הכפתור "נלחץ" עם הגדלה מורגשת (~9%). */
+/* אפקט כפתורים בסגנון Dan Rix: בריחוף הכפתור "מתהפך" (מילוי <-> מסגרת)
+   והטקסט מודגש; בלחיצה הכפתור גדל מעט (~6%). המעבר חלק. */
 .btn-press {
-  transition: transform 0.18s ease, box-shadow 0.2s ease,
-    background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.18s ease, background-color 0.2s ease,
+    border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-press:hover {
   font-weight: 700;
-  transform: scale(1.04);
-  box-shadow: 0 10px 22px -8px rgba(12, 36, 56, 0.45);
 }
 .btn-press:active {
-  transform: scale(1.09);
+  transform: scale(1.06);
 }

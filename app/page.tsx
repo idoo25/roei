@@ -49,13 +49,13 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#contact"
-                  className="btn-press rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white hover:bg-teal-600"
+                  className="btn-press rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white ring-2 ring-inset ring-teal-700 hover:bg-white hover:text-teal-700"
                 >
                   לקביעת פגישת אבחון
                 </a>
                 <a
                   href="#treatments"
-                  className="btn-press rounded-full border border-slate-300 bg-white px-7 py-3.5 font-semibold text-slate-800 hover:border-teal-500 hover:text-teal-600"
+                  className="btn-press rounded-full border-2 border-teal-700 bg-white px-7 py-3.5 font-semibold text-teal-700 hover:bg-teal-700 hover:text-white"
                 >
                   למידע נוסף
                 </a>
@@ -229,7 +229,7 @@ export default function Home() {
                 href={site.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-press mt-8 inline-flex items-center gap-2 rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white hover:bg-teal-600"
+                className="btn-press mt-8 inline-flex items-center gap-2 rounded-full bg-teal-700 px-7 py-3.5 font-semibold text-white ring-2 ring-inset ring-teal-700 hover:bg-white hover:text-teal-700"
               >
                 <Icon name="whatsapp" className="h-5 w-5" />
                 לקביעת תור בוואטסאפ

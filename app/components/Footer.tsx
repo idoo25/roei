@@ -1,22 +1,37 @@
 import Image from "next/image";
 import { Icon } from "./Icon";
 import Container from "./Container";
+import HexPattern from "./HexPattern";
 import { navLinks } from "../data/nav";
 import { site } from "../data/site";
 import { asset } from "../basePath";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto bg-teal-700 text-white">
-      <Container className="py-14">
+    <footer className="relative isolate mt-auto overflow-hidden bg-teal-700 text-white">
+      {/* משושים מעל ה-footer (בהיר על הרקע הכהה), בצד שמאל, מאחורי התוכן */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-0 -z-10 w-3/4 max-w-2xl"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to right, black 0%, black 16%, transparent 70%)",
+          maskImage:
+            "linear-gradient(to right, black 0%, black 16%, transparent 70%)",
+        }}
+      >
+        <HexPattern id="hex-footer" className="h-full w-full -scale-x-100 text-white/15" />
+      </div>
+
+      <Container className="relative py-14">
         <div className="flex flex-col items-center gap-6 text-center">
-          <a href="#hero" className="inline-flex items-center rounded-2xl bg-white px-5 py-3">
+          <a href="#hero" className="flex items-center">
             <Image
-              src={asset("/logo.png")}
+              src={asset("/logo-light.png")}
               alt="רועי קליין — פיזיותרפיסט"
               width={330}
               height={110}
-              className="h-11 w-auto"
+              className="h-12 w-auto max-w-none shrink-0"
             />
           </a>
 
