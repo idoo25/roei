@@ -42,20 +42,27 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-50 bg-white transition-transform duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
+        hidden ? "lg:-translate-y-full" : "translate-y-0"
       } ${scrolled ? "border-b border-slate-200 shadow-sm" : "border-b border-transparent"}`}
     >
       <Container>
-        <div className="flex h-20 flex-row-reverse items-center justify-between gap-4 lg:h-[120px] lg:flex-row">
+        <div
+          className={`flex flex-row-reverse items-center gap-4 transition-all duration-300 lg:h-[120px] lg:flex-row lg:justify-between ${
+            hidden ? "h-14 justify-end" : "h-24 justify-between sm:h-[120px]"
+          }`}
+        >
           {/* לוגו */}
-          <a href="#hero" className="flex items-center">
+          <a
+            href="#hero"
+            className={`items-center ${hidden ? "hidden lg:flex" : "flex"}`}
+          >
             <Image
               src={asset("/logo-navy.png")}
               alt="רועי קליין — פיזיותרפיסט"
               width={330}
               height={110}
               priority
-              className="h-12 w-auto max-w-none shrink-0 sm:h-16 lg:h-[88px]"
+              className="h-[77px] w-auto max-w-none shrink-0 sm:h-[102px] lg:h-[88px]"
             />
           </a>
 
